@@ -1,0 +1,10 @@
+{
+  "description": "Interactive basketball referee course platform delivering structured, dependency-based learning with visual rules, scenarios, quizzes, and instructor tools.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

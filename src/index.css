@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: #070B14;
+  color: #F1F5F9;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+.font-display { font-family: 'Barlow Condensed', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+.dot-grid {
+  background-image: radial-gradient(rgba(30, 48, 82, 0.45) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #1E3052; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #2A4070; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes drawLine {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes pulseOrange {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(249,115,22,0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(249,115,22,0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.anim-fade-up   { animation: fadeUp   0.45s cubic-bezier(0.22,1,0.36,1) both; }
+.anim-fade-in   { animation: fadeIn   0.3s  ease-out both; }
+.anim-slide-r   { animation: slideRight 0.4s cubic-bezier(0.22,1,0.36,1) both; }
+.anim-slide-l   { animation: slideLeft  0.4s cubic-bezier(0.22,1,0.36,1) both; }
+.anim-scale-in  { animation: scaleIn  0.35s cubic-bezier(0.22,1,0.36,1) both; }
+.anim-draw-line { animation: drawLine 1.2s  ease-out both; }
+
+.anim-d1 { animation-delay: 0.05s; }
+.anim-d2 { animation-delay: 0.12s; }
+.anim-d3 { animation-delay: 0.19s; }
+.anim-d4 { animation-delay: 0.26s; }
+.anim-d5 { animation-delay: 0.33s; }
+.anim-d6 { animation-delay: 0.40s; }
+
+.orange-glow   { box-shadow: 0 0 24px rgba(249,115,22,0.2); }
+.orange-glow-sm { box-shadow: 0 0 12px rgba(249,115,22,0.15); }
+.pulse-orange  { animation: pulseOrange 2s infinite; }
+
+.glass {
+  background: rgba(13, 21, 37, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(30, 48, 82, 0.5);
+}
+
+.card-hover {
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.card-hover:hover {
+  border-color: rgba(249,115,22,0.35);
+  box-shadow: 0 0 20px rgba(249,115,22,0.1);
+  transform: translateY(-1px);
+}
+
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.22,1,0.36,1);
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.slide-content {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Node tooltip */
+.node-tooltip {
+  pointer-events: none;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.5));
+}
+
+/* Court lines */
+.court-line {
+  stroke: rgba(30,48,82,0.7);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+/* Sidebar active indicator */
+.nav-active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: #F97316;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Knowledge node categories */
+.node-foundation { fill: #1E3A5F; stroke: #2563EB; }
+.node-control     { fill: #1A2F1A; stroke: #16A34A; }
+.node-status      { fill: #2D1B00; stroke: #F97316; }
+.node-violation   { fill: #2D1010; stroke: #EF4444; }
+.node-foul        { fill: #2D1020; stroke: #EC4899; }
+.node-procedure   { fill: #1A1A2D; stroke: #8B5CF6; }
+.node-mechanics   { fill: #0D2020; stroke: #14B8A6; }
+
+.node-text { fill: #F1F5F9; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; }
+.edge-line { stroke: rgba(30,48,82,0.7); stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+.edge-line-active { stroke: rgba(249,115,22,0.6); stroke-width: 2; }
